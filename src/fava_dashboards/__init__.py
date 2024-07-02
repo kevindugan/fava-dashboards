@@ -139,7 +139,7 @@ class FavaDashboards(FavaExtensionBase):
 
         if g.filtered.date_range:
             date_first = g.filtered.date_range.begin
-            date_last = g.filtered.date_range.end - datetime.timedelta(days=1)
+            date_last = g.filtered.date_range.end #- datetime.timedelta(days=1)
 
             # Adjust the dates in case the date filter is set to e.g. 2023-2024,
             # however the ledger only contains data up to summer 2024.
