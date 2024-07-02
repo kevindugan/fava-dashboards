@@ -139,7 +139,7 @@ class FavaDashboards(FavaExtensionBase):
 
         if g.filtered.date_range:
             date_first = g.filtered.date_range.begin
-            date_last = g.filtered.date_range.end #- datetime.timedelta(days=1)
+            date_last = g.filtered.date_range.end - datetime.timedelta(days=1)
 
             # Adjust the dates in case the date filter is set to e.g. 2023-2024,
             # however the ledger only contains data up to summer 2024.
@@ -158,8 +158,12 @@ class FavaDashboards(FavaExtensionBase):
         commodities = {c.currency: c for c in self.ledger.all_entries_by_type.Commodity}
         accounts = self.ledger.accounts
         return {
+            "dateFirst_m1": date_first - datetime.timedelta(days=1),
             "dateFirst": date_first,
+            "dateFirst_p1": date_first + datetime.timedelta(days=1),
+            "dateLast_m1": date_last - datetime.timedelta(days=1),
             "dateLast": date_last,
+            "dateLast_p1": date_last + datetime.timedelta(days=1),
             "operatingCurrencies": operating_currencies,
             "ccy": operating_currencies[0],
             "accounts": accounts,

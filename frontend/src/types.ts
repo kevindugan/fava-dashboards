@@ -40,9 +40,13 @@ interface Panel {
 export interface Ledger {
     /** first date in the current date filter */
     dateFirst: string;
+    dateFirst_m1: string;
+    dateFirst_p1: string;
 
     /** last date in the current date filter */
     dateLast: string;
+    dateLast_m1: string;
+    dateLast_p1: string;
 
     /** configured operating currencies of the ledger */
     operatingCurrencies: string[];
