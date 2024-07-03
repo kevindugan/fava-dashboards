@@ -2,7 +2,6 @@ import { Bootstrap, Dashboard, Ledger, Utils } from "./types";
 import * as Panels from "./panels";
 import * as helpers from "./helpers";
 import { urlFor } from "./helpers";
-import 'bootstrap';
 
 function renderDashboard(ext: any, dashboard: Dashboard, ledger: Ledger, utils: Utils) {
     // add Fava filter parameters to panel links
